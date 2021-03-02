@@ -1,0 +1,21 @@
+{
+  "name": "harlam/resolver",
+  "description": "Simple dependency resolver",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "harlam",
+      "email": "harlamov.nikolay@yandex.ru"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DI\\Resolver\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=7.1",
+    "psr/container": "^1.0"
+  }
+}
