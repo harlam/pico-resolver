@@ -1,15 +1,15 @@
 <?php
 
-namespace DI\Resolver;
+namespace Pico\Resolver;
 
+use Pico\Resolver\Contracts\ResolverInterface;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionException;
 
 class Resolver implements ResolverInterface
 {
-    /** @var ContainerInterface */
-    private $container;
+    private ContainerInterface $container;
 
     public function __construct(ContainerInterface $container)
     {
@@ -37,6 +37,10 @@ class Resolver implements ResolverInterface
     {
         if ($this->container->has($name)) {
             return $this->container->get($name);
+        }
+
+        if (false === class_exists($name)) {
+            throw new ResolverException("Unknown class '{$name}'");
         }
 
         $reflection = new ReflectionClass($name);

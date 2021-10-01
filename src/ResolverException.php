@@ -1,6 +1,6 @@
 <?php
 
-namespace DI\Resolver;
+namespace Pico\Resolver;
 
 use Exception;
 
